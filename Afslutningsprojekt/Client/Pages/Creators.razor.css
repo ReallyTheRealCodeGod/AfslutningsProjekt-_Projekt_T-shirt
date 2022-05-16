@@ -1,0 +1,20 @@
+﻿.artists_gallery {
+        position: static;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(15%, -50%);
+       margin: 15rem 0rem 0rem 0rem; /*top right bottom left*/
+
+
+}
+
+.artists_gallery img {
+       margin: 1rem 1rem 1rem 1rem; /*top right bottom left*/
+
+}
+
+p {
+
+}
+  

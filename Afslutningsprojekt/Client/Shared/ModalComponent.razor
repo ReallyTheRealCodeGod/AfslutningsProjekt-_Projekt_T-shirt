@@ -1,0 +1,41 @@
+﻿<div class="modal fade show d-block" id="Modal" tabindex="-1" role="dialog">  
+    <div class="modal-dialog" role="document">  
+        <div class="modal-content">  
+            <div class="modal-header">  
+                <h5 class="modal-title" id="titleLabel">@Title</h5>  
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" @onclick="@ModalCancel">  
+                    <span aria-hidden="true">×</span>  
+                </button>  
+            </div>  
+            <div class="modal-body">
+                <p>@Text</p>
+            </div>
+            <div class="modal-body">  
+                
+                    <a class="btn btn-outline-primary" @onclick="@ModalOk">ok</a>  
+                
+            </div>   
+        </div>  
+    </div>  
+</div>  
+
+@code {
+
+    [Parameter]
+    public string Title { get; set; }
+    [Parameter]
+    public string Text { get; set; }
+    [Parameter]
+    public EventCallback<bool> OnClose { get; set; }
+
+    private Task ModalCancel()
+    {
+        return OnClose.InvokeAsync(false);
+    }
+    private Task ModalOk()
+    {
+        return OnClose.InvokeAsync(true);
+    }
+
+  
+   }

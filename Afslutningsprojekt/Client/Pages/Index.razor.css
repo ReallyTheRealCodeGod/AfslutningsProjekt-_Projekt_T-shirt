@@ -1,0 +1,26 @@
+﻿.parent_video_index {
+    position: relative;
+
+}
+
+.video_index {
+    display: block;
+    opacity: 0.2;
+    z-index: 17;
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+.titel {
+    z-index: 17;
+    position: absolute;
+    margin: 17rem 0rem 0rem 0rem; /*top right bottom left*/
+    top: 100%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    font-size:18rem;
+}

@@ -1,0 +1,56 @@
+﻿
+
+header {
+    display: flex;
+    justify-content:start;
+    align-items: center;
+/*    padding: 3px 15%;*/
+    background-color: #edf0f1;
+    margin: 1rem;
+}
+
+.logo {
+    cursor: pointer;
+    padding: 0.5rem 20rem 1rem 4rem; /*top right bottom left*/
+}
+
+.nav__links a {
+    font-family: Arial, sans-serif;
+    font-weight: 500;
+    font-size: 2rem;
+    padding: 0.5rem 1rem 1rem 1rem; /*top right bottom left*/
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+}
+
+.nav__links {
+    list-style: none;
+    display: flex;
+    padding: 0.5rem 10rem 1rem 1rem; /*top right bottom left*/
+}
+
+    .nav__links li {
+        padding: 0px 20px;
+    }
+
+    .nav__links li a {
+        transition: color 0.3s ease 0s;
+    }
+
+    .nav__links li a:hover {
+        color: #0088a9;
+    }
+
+.buy, .search {
+    padding: 1px 1rem;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+
+   
+
+
+
+

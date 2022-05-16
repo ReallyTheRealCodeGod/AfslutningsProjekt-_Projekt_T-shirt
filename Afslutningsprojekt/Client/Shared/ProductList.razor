@@ -1,0 +1,57 @@
+﻿@*Dependency injection, explaination https://docs.microsoft.com/en-us/dotnet/core/extensions/dependency-injection*@
+@inject HttpClient Http
+
+<h3>ProductList</h3>
+
+<div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+           @foreach (var products in Products)
+           {
+                <div class="col">
+                    <div class="card shadow-sm">
+@*                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+*@                      <a href="/product/@products.Id">
+                            <img class="media-img mx-auto d-block" src="@products.Image" alt="@products.Title"/>    
+                        </a>    
+
+                        <div class="card-body">
+                                <a href="/product/@products.Id">
+                                    <h4 class="mb-0">@products.Title</h4>
+                                </a>
+                                <p>@products.Description</p>
+                                @if(products.OriginalPrice > products.Price)
+                                {
+                                    <h6 class="text-muted original-price">@products.OriginalPrice</h6>
+                                }
+                                <h5 class="price">
+                                    @products.Price
+                                </h5>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Buy</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Add to cart</button>
+                                </div>
+                                <small class="text-muted">text</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private static List<Product> Products = new List<Product>();
+
+    @*Gets invoked when component is ready, having received everything from the parent/rendertree and can perfom async*@
+    protected override async Task OnInitializedAsync()
+    {
+        var result = await Http.GetFromJsonAsync<List<Product>>("api/Product");
+        if (result != null)
+            Products = result;
+    }
+}

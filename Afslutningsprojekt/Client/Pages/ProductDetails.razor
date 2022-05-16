@@ -1,0 +1,10 @@
+﻿@*product details page, that uses a service to get the product/storeItemModel details*@
+
+@page "/product/{id}"
+
+<h3>Product</h3>
+
+@code {
+    [Parameter]
+    public string Id { get; set; }
+}
