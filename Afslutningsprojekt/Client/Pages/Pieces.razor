@@ -4,6 +4,21 @@
 <h3>art pieces</h3>
 <p1>clothing for the modern man</p1>
 
+<button @onclick="DisplayList"> press me </button>
+
+
+<input @bind="InputValue" @bind:event="oninput" />
+ 
+
+
+<p>@InputValue</p>
+
+<div>
+    @foreach (var item in Items)
+    {
+        <p1>@item</p1>
+    }
+</div>
 
 
 
@@ -11,10 +26,14 @@
 
 @code {
     @*skal have objekter fra database ind her, så jeg kan vise dem på siden *@
-    public String[] Items = { "bread", "butter", "cake"};
 
+    private string? InputValue { get; set; }
 
+    private List<String> Items = new List<String>();
 
-
-
+    private void DisplayList()
+    {
+        if (InputValue!= null)
+            Items.Add(InputValue);
+    }
 }
